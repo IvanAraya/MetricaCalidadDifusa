@@ -8,12 +8,13 @@
  */
 namespace MetricaCalidadDifusa
 {
-	partial class MainForm
+	partial class FrmMain
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
+		private System.Windows.Forms.MenuStrip menuStrip1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -36,12 +37,29 @@ namespace MetricaCalidadDifusa
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.SuspendLayout();
 			// 
-			// MainForm
+			// menuStrip1
 			// 
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(713, 24);
+			this.menuStrip1.TabIndex = 0;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// FrmMain
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(713, 485);
+			this.Controls.Add(this.menuStrip1);
+			this.MainMenuStrip = this.menuStrip1;
+			this.Name = "FrmMain";
 			this.Text = "MetricaCalidadDifusa";
-			this.Name = "MainForm";
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 	}
 }
