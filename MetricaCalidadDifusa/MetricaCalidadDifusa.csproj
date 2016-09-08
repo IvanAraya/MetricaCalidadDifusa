@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AGauge">
+      <HintPath>lib\AGauge.dll</HintPath>
+    </Reference>
     <Reference Include="FuzzyCore">
       <HintPath>lib\FuzzyCore.dll</HintPath>
     </Reference>
