@@ -1,0 +1,11 @@
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.exe.config
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.exe
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.pdb
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\FuzzyCore.dll
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\Irony.dll
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\bin\Debug\Irony.Interpreter.dll
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.csprojResolveAssemblyReference.cache
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.FrmMain.resources
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.csproj.GenerateResource.Cache
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.exe
+D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.pdb
