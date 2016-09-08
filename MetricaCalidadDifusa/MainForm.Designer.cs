@@ -42,7 +42,7 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.ProgressBar prgReusabilidad;
 		private System.Windows.Forms.ProgressBar prgInteroperabilidad;
-		private System.Windows.Forms.ProgressBar prgPruebas;
+		private System.Windows.Forms.ProgressBar prgPortabilidad;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
@@ -112,7 +112,7 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.TrackBar trkCapacidadExpansion;
 		private System.Windows.Forms.TrackBar trkGeneralidad;
 		private System.Windows.Forms.TrackBar trkCompatibilidadComunicacion;
-		private System.Windows.Forms.TrackBar trkCaopatibilidadDatos;
+		private System.Windows.Forms.TrackBar trkCompatibilidadDatos;
 		private System.Windows.Forms.TrackBar trkEstandarizacionDatos;
 		private System.Windows.Forms.NumericUpDown ponFacilidadOperacion;
 		private System.Windows.Forms.NumericUpDown ponFacilidadComunicacion;
@@ -141,31 +141,8 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.NumericUpDown ponCompatibilidadComunicacion;
 		private System.Windows.Forms.NumericUpDown ponCompatibilidadDatos;
 		private System.Windows.Forms.NumericUpDown ponEstandarizacionDatos;
-		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem reglasToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasCalidadDeSoftwareToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasOperaciónDelProductoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem revisiónDelProductoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem transiciónDelProductoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasRevisiónDelProductoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasTransiciónDelProductoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasToolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasCorrecciónToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasFiabilidadToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasToolStripMenuItem3;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasFacilidadDeMantenimientoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasFacilidadDePruebasToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasFlexibilidadToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasUsabilidadToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasInteroperabilidadToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cargarReglasPortabilidadToolStripMenuItem;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.Label label18;
@@ -174,14 +151,17 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.Label label21;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.RadioButton radioButton1;
-		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.RadioButton rbControlSi;
+		private System.Windows.Forms.RadioButton rbControlNo;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-		private System.Windows.Forms.RadioButton radioButton5;
-		private System.Windows.Forms.RadioButton radioButton6;
+		private System.Windows.Forms.RadioButton rbIndHardwareSi;
+		private System.Windows.Forms.RadioButton rbIndHardwareNo;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-		private System.Windows.Forms.RadioButton radioButton3;
-		private System.Windows.Forms.RadioButton radioButton4;
+		private System.Windows.Forms.RadioButton rbIndSoftwareSi;
+		private System.Windows.Forms.RadioButton rbIndSoftwareNo;
+		private System.Windows.Forms.ToolStripMenuItem definirBaseDeReglasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem recargarReglasToolStripMenuItem;
+		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -204,9 +184,15 @@ namespace MetricaCalidadDifusa
         /// </summary>
         private void InitializeComponent()
         {
-        	System.Windows.Forms.AGaugeRange aGaugeRange1 = new System.Windows.Forms.AGaugeRange();
+        	System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
         	this.splitContainer1 = new System.Windows.Forms.SplitContainer();
         	this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+        	this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+        	this.rbIndHardwareSi = new System.Windows.Forms.RadioButton();
+        	this.rbIndHardwareNo = new System.Windows.Forms.RadioButton();
+        	this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+        	this.rbIndSoftwareSi = new System.Windows.Forms.RadioButton();
+        	this.rbIndSoftwareNo = new System.Windows.Forms.RadioButton();
         	this.label25 = new System.Windows.Forms.Label();
         	this.label26 = new System.Windows.Forms.Label();
         	this.label27 = new System.Windows.Forms.Label();
@@ -255,7 +241,7 @@ namespace MetricaCalidadDifusa
         	this.trkCapacidadExpansion = new System.Windows.Forms.TrackBar();
         	this.trkGeneralidad = new System.Windows.Forms.TrackBar();
         	this.trkCompatibilidadComunicacion = new System.Windows.Forms.TrackBar();
-        	this.trkCaopatibilidadDatos = new System.Windows.Forms.TrackBar();
+        	this.trkCompatibilidadDatos = new System.Windows.Forms.TrackBar();
         	this.trkEstandarizacionDatos = new System.Windows.Forms.TrackBar();
         	this.ponFacilidadOperacion = new System.Windows.Forms.NumericUpDown();
         	this.ponFacilidadComunicacion = new System.Windows.Forms.NumericUpDown();
@@ -284,6 +270,16 @@ namespace MetricaCalidadDifusa
         	this.ponCompatibilidadComunicacion = new System.Windows.Forms.NumericUpDown();
         	this.ponCompatibilidadDatos = new System.Windows.Forms.NumericUpDown();
         	this.ponEstandarizacionDatos = new System.Windows.Forms.NumericUpDown();
+        	this.label1 = new System.Windows.Forms.Label();
+        	this.label17 = new System.Windows.Forms.Label();
+        	this.label18 = new System.Windows.Forms.Label();
+        	this.label19 = new System.Windows.Forms.Label();
+        	this.label20 = new System.Windows.Forms.Label();
+        	this.label21 = new System.Windows.Forms.Label();
+        	this.label22 = new System.Windows.Forms.Label();
+        	this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+        	this.rbControlSi = new System.Windows.Forms.RadioButton();
+        	this.rbControlNo = new System.Windows.Forms.RadioButton();
         	this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         	this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
         	this.label14 = new System.Windows.Forms.Label();
@@ -291,7 +287,7 @@ namespace MetricaCalidadDifusa
         	this.label16 = new System.Windows.Forms.Label();
         	this.prgReusabilidad = new System.Windows.Forms.ProgressBar();
         	this.prgInteroperabilidad = new System.Windows.Forms.ProgressBar();
-        	this.prgPruebas = new System.Windows.Forms.ProgressBar();
+        	this.prgPortabilidad = new System.Windows.Forms.ProgressBar();
         	this.gauCalidad = new System.Windows.Forms.AGauge();
         	this.label2 = new System.Windows.Forms.Label();
         	this.label3 = new System.Windows.Forms.Label();
@@ -318,52 +314,18 @@ namespace MetricaCalidadDifusa
         	this.prgFacilidadMantenimiento = new System.Windows.Forms.ProgressBar();
         	this.prgFacilidadPrueba = new System.Windows.Forms.ProgressBar();
         	this.prgFlexibilidad = new System.Windows.Forms.ProgressBar();
-        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	this.menuStrip1 = new System.Windows.Forms.MenuStrip();
         	this.reglasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasCalidadDeSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-        	this.cargarReglasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasOperaciónDelProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-        	this.cargarReglasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-        	this.revisiónDelProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasRevisiónDelProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-        	this.transiciónDelProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasTransiciónDelProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-        	this.cargarReglasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasCorrecciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasFiabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasFacilidadDeMantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasFacilidadDePruebasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasFlexibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasUsabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasInteroperabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.cargarReglasPortabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.label1 = new System.Windows.Forms.Label();
-        	this.label17 = new System.Windows.Forms.Label();
-        	this.label18 = new System.Windows.Forms.Label();
-        	this.label19 = new System.Windows.Forms.Label();
-        	this.label20 = new System.Windows.Forms.Label();
-        	this.label21 = new System.Windows.Forms.Label();
-        	this.label22 = new System.Windows.Forms.Label();
-        	this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-        	this.radioButton1 = new System.Windows.Forms.RadioButton();
-        	this.radioButton2 = new System.Windows.Forms.RadioButton();
-        	this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-        	this.radioButton3 = new System.Windows.Forms.RadioButton();
-        	this.radioButton4 = new System.Windows.Forms.RadioButton();
-        	this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-        	this.radioButton5 = new System.Windows.Forms.RadioButton();
-        	this.radioButton6 = new System.Windows.Forms.RadioButton();
+        	this.definirBaseDeReglasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.recargarReglasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
         	this.splitContainer1.Panel1.SuspendLayout();
         	this.splitContainer1.Panel2.SuspendLayout();
         	this.splitContainer1.SuspendLayout();
         	this.tableLayoutPanel3.SuspendLayout();
+        	this.tableLayoutPanel8.SuspendLayout();
+        	this.tableLayoutPanel7.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadOperacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadComunicacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadAprendizaje)).BeginInit();
@@ -386,7 +348,7 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.trkCapacidadExpansion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkGeneralidad)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadComunicacion)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trkCaopatibilidadDatos)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadDatos)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkEstandarizacionDatos)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadOperacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadComunicacion)).BeginInit();
@@ -415,14 +377,12 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadComunicacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadDatos)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponEstandarizacionDatos)).BeginInit();
+        	this.tableLayoutPanel2.SuspendLayout();
         	this.tableLayoutPanel1.SuspendLayout();
         	this.tableLayoutPanel6.SuspendLayout();
         	this.tableLayoutPanel4.SuspendLayout();
         	this.tableLayoutPanel5.SuspendLayout();
         	this.menuStrip1.SuspendLayout();
-        	this.tableLayoutPanel2.SuspendLayout();
-        	this.tableLayoutPanel7.SuspendLayout();
-        	this.tableLayoutPanel8.SuspendLayout();
         	this.SuspendLayout();
         	// 
         	// splitContainer1
@@ -454,7 +414,7 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
         	this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
         	this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-        	this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+        	this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
         	this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel8, 4, 10);
         	this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 4, 9);
         	this.tableLayoutPanel3.Controls.Add(this.label25, 0, 2);
@@ -505,7 +465,7 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel3.Controls.Add(this.trkCapacidadExpansion, 4, 7);
         	this.tableLayoutPanel3.Controls.Add(this.trkGeneralidad, 4, 8);
         	this.tableLayoutPanel3.Controls.Add(this.trkCompatibilidadComunicacion, 4, 11);
-        	this.tableLayoutPanel3.Controls.Add(this.trkCaopatibilidadDatos, 4, 12);
+        	this.tableLayoutPanel3.Controls.Add(this.trkCompatibilidadDatos, 4, 12);
         	this.tableLayoutPanel3.Controls.Add(this.trkEstandarizacionDatos, 4, 13);
         	this.tableLayoutPanel3.Controls.Add(this.ponFacilidadOperacion, 2, 1);
         	this.tableLayoutPanel3.Controls.Add(this.ponFacilidadComunicacion, 2, 2);
@@ -563,6 +523,88 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.5F));
         	this.tableLayoutPanel3.Size = new System.Drawing.Size(993, 399);
         	this.tableLayoutPanel3.TabIndex = 1;
+        	// 
+        	// tableLayoutPanel8
+        	// 
+        	this.tableLayoutPanel8.ColumnCount = 2;
+        	this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
+        	this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
+        	this.tableLayoutPanel8.Controls.Add(this.rbIndHardwareSi, 0, 0);
+        	this.tableLayoutPanel8.Controls.Add(this.rbIndHardwareNo, 1, 0);
+        	this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.tableLayoutPanel8.Location = new System.Drawing.Point(720, 263);
+        	this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+        	this.tableLayoutPanel8.RowCount = 1;
+        	this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        	this.tableLayoutPanel8.Size = new System.Drawing.Size(218, 19);
+        	this.tableLayoutPanel8.TabIndex = 91;
+        	this.tableLayoutPanel8.Click += new System.EventHandler(this.inferir);
+        	// 
+        	// rbIndHardwareSi
+        	// 
+        	this.rbIndHardwareSi.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbIndHardwareSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbIndHardwareSi.Location = new System.Drawing.Point(3, 3);
+        	this.rbIndHardwareSi.Name = "rbIndHardwareSi";
+        	this.rbIndHardwareSi.Size = new System.Drawing.Size(36, 13);
+        	this.rbIndHardwareSi.TabIndex = 0;
+        	this.rbIndHardwareSi.TabStop = true;
+        	this.rbIndHardwareSi.Text = "Si";
+        	this.rbIndHardwareSi.UseVisualStyleBackColor = true;
+        	this.rbIndHardwareSi.Click += new System.EventHandler(this.inferir);
+        	// 
+        	// rbIndHardwareNo
+        	// 
+        	this.rbIndHardwareNo.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbIndHardwareNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbIndHardwareNo.Location = new System.Drawing.Point(45, 3);
+        	this.rbIndHardwareNo.Name = "rbIndHardwareNo";
+        	this.rbIndHardwareNo.Size = new System.Drawing.Size(170, 13);
+        	this.rbIndHardwareNo.TabIndex = 1;
+        	this.rbIndHardwareNo.TabStop = true;
+        	this.rbIndHardwareNo.Text = "No";
+        	this.rbIndHardwareNo.UseVisualStyleBackColor = true;
+        	// 
+        	// tableLayoutPanel7
+        	// 
+        	this.tableLayoutPanel7.ColumnCount = 2;
+        	this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
+        	this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
+        	this.tableLayoutPanel7.Controls.Add(this.rbIndSoftwareSi, 0, 0);
+        	this.tableLayoutPanel7.Controls.Add(this.rbIndSoftwareNo, 1, 0);
+        	this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.tableLayoutPanel7.Location = new System.Drawing.Point(720, 238);
+        	this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+        	this.tableLayoutPanel7.RowCount = 1;
+        	this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        	this.tableLayoutPanel7.Size = new System.Drawing.Size(218, 19);
+        	this.tableLayoutPanel7.TabIndex = 90;
+        	// 
+        	// rbIndSoftwareSi
+        	// 
+        	this.rbIndSoftwareSi.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbIndSoftwareSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbIndSoftwareSi.Location = new System.Drawing.Point(3, 3);
+        	this.rbIndSoftwareSi.Name = "rbIndSoftwareSi";
+        	this.rbIndSoftwareSi.Size = new System.Drawing.Size(36, 13);
+        	this.rbIndSoftwareSi.TabIndex = 0;
+        	this.rbIndSoftwareSi.TabStop = true;
+        	this.rbIndSoftwareSi.Text = "Si";
+        	this.rbIndSoftwareSi.UseVisualStyleBackColor = true;
+        	this.rbIndSoftwareSi.Click += new System.EventHandler(this.inferir);
+        	// 
+        	// rbIndSoftwareNo
+        	// 
+        	this.rbIndSoftwareNo.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbIndSoftwareNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbIndSoftwareNo.Location = new System.Drawing.Point(45, 3);
+        	this.rbIndSoftwareNo.Name = "rbIndSoftwareNo";
+        	this.rbIndSoftwareNo.Size = new System.Drawing.Size(170, 13);
+        	this.rbIndSoftwareNo.TabIndex = 1;
+        	this.rbIndSoftwareNo.TabStop = true;
+        	this.rbIndSoftwareNo.Text = "No";
+        	this.rbIndSoftwareNo.UseVisualStyleBackColor = true;
+        	this.rbIndSoftwareNo.Click += new System.EventHandler(this.inferir);
         	// 
         	// label25
         	// 
@@ -831,6 +873,7 @@ namespace MetricaCalidadDifusa
         	this.trkFacilidadOperacion.Name = "trkFacilidadOperacion";
         	this.trkFacilidadOperacion.Size = new System.Drawing.Size(218, 19);
         	this.trkFacilidadOperacion.TabIndex = 28;
+        	this.trkFacilidadOperacion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkFacilidadComunicacion
         	// 
@@ -839,6 +882,7 @@ namespace MetricaCalidadDifusa
         	this.trkFacilidadComunicacion.Name = "trkFacilidadComunicacion";
         	this.trkFacilidadComunicacion.Size = new System.Drawing.Size(218, 19);
         	this.trkFacilidadComunicacion.TabIndex = 29;
+        	this.trkFacilidadComunicacion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkFacilidadAprendizaje
         	// 
@@ -847,6 +891,7 @@ namespace MetricaCalidadDifusa
         	this.trkFacilidadAprendizaje.Name = "trkFacilidadAprendizaje";
         	this.trkFacilidadAprendizaje.Size = new System.Drawing.Size(218, 19);
         	this.trkFacilidadAprendizaje.TabIndex = 30;
+        	this.trkFacilidadAprendizaje.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkFormacion
         	// 
@@ -855,6 +900,7 @@ namespace MetricaCalidadDifusa
         	this.trkFormacion.Name = "trkFormacion";
         	this.trkFormacion.Size = new System.Drawing.Size(218, 19);
         	this.trkFormacion.TabIndex = 31;
+        	this.trkFormacion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkFacilidadAuditoria
         	// 
@@ -863,6 +909,7 @@ namespace MetricaCalidadDifusa
         	this.trkFacilidadAuditoria.Name = "trkFacilidadAuditoria";
         	this.trkFacilidadAuditoria.Size = new System.Drawing.Size(218, 19);
         	this.trkFacilidadAuditoria.TabIndex = 33;
+        	this.trkFacilidadAuditoria.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkSeguridad
         	// 
@@ -871,6 +918,7 @@ namespace MetricaCalidadDifusa
         	this.trkSeguridad.Name = "trkSeguridad";
         	this.trkSeguridad.Size = new System.Drawing.Size(218, 19);
         	this.trkSeguridad.TabIndex = 34;
+        	this.trkSeguridad.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkCompletitud
         	// 
@@ -879,6 +927,7 @@ namespace MetricaCalidadDifusa
         	this.trkCompletitud.Name = "trkCompletitud";
         	this.trkCompletitud.Size = new System.Drawing.Size(218, 19);
         	this.trkCompletitud.TabIndex = 35;
+        	this.trkCompletitud.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkConsistencia
         	// 
@@ -887,6 +936,7 @@ namespace MetricaCalidadDifusa
         	this.trkConsistencia.Name = "trkConsistencia";
         	this.trkConsistencia.Size = new System.Drawing.Size(218, 19);
         	this.trkConsistencia.TabIndex = 36;
+        	this.trkConsistencia.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkTrazabilidad
         	// 
@@ -895,6 +945,7 @@ namespace MetricaCalidadDifusa
         	this.trkTrazabilidad.Name = "trkTrazabilidad";
         	this.trkTrazabilidad.Size = new System.Drawing.Size(218, 19);
         	this.trkTrazabilidad.TabIndex = 37;
+        	this.trkTrazabilidad.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkPrecision
         	// 
@@ -903,6 +954,7 @@ namespace MetricaCalidadDifusa
         	this.trkPrecision.Name = "trkPrecision";
         	this.trkPrecision.Size = new System.Drawing.Size(218, 19);
         	this.trkPrecision.TabIndex = 38;
+        	this.trkPrecision.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkToleranciaFallos
         	// 
@@ -911,6 +963,7 @@ namespace MetricaCalidadDifusa
         	this.trkToleranciaFallos.Name = "trkToleranciaFallos";
         	this.trkToleranciaFallos.Size = new System.Drawing.Size(218, 19);
         	this.trkToleranciaFallos.TabIndex = 39;
+        	this.trkToleranciaFallos.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkModularidad
         	// 
@@ -919,6 +972,7 @@ namespace MetricaCalidadDifusa
         	this.trkModularidad.Name = "trkModularidad";
         	this.trkModularidad.Size = new System.Drawing.Size(218, 19);
         	this.trkModularidad.TabIndex = 40;
+        	this.trkModularidad.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkSimplicidad
         	// 
@@ -927,6 +981,7 @@ namespace MetricaCalidadDifusa
         	this.trkSimplicidad.Name = "trkSimplicidad";
         	this.trkSimplicidad.Size = new System.Drawing.Size(218, 33);
         	this.trkSimplicidad.TabIndex = 41;
+        	this.trkSimplicidad.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkExactitud
         	// 
@@ -935,6 +990,7 @@ namespace MetricaCalidadDifusa
         	this.trkExactitud.Name = "trkExactitud";
         	this.trkExactitud.Size = new System.Drawing.Size(218, 19);
         	this.trkExactitud.TabIndex = 42;
+        	this.trkExactitud.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkEficienciaEjecucion
         	// 
@@ -943,6 +999,7 @@ namespace MetricaCalidadDifusa
         	this.trkEficienciaEjecucion.Name = "trkEficienciaEjecucion";
         	this.trkEficienciaEjecucion.Size = new System.Drawing.Size(218, 19);
         	this.trkEficienciaEjecucion.TabIndex = 43;
+        	this.trkEficienciaEjecucion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkEficienciaAlmacenamiento
         	// 
@@ -951,6 +1008,7 @@ namespace MetricaCalidadDifusa
         	this.trkEficienciaAlmacenamiento.Name = "trkEficienciaAlmacenamiento";
         	this.trkEficienciaAlmacenamiento.Size = new System.Drawing.Size(218, 19);
         	this.trkEficienciaAlmacenamiento.TabIndex = 44;
+        	this.trkEficienciaAlmacenamiento.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkConcision
         	// 
@@ -959,6 +1017,7 @@ namespace MetricaCalidadDifusa
         	this.trkConcision.Name = "trkConcision";
         	this.trkConcision.Size = new System.Drawing.Size(218, 19);
         	this.trkConcision.TabIndex = 45;
+        	this.trkConcision.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkAutoDescripcion
         	// 
@@ -967,6 +1026,7 @@ namespace MetricaCalidadDifusa
         	this.trkAutoDescripcion.Name = "trkAutoDescripcion";
         	this.trkAutoDescripcion.Size = new System.Drawing.Size(218, 19);
         	this.trkAutoDescripcion.TabIndex = 46;
+        	this.trkAutoDescripcion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkInstrumentacion
         	// 
@@ -975,6 +1035,7 @@ namespace MetricaCalidadDifusa
         	this.trkInstrumentacion.Name = "trkInstrumentacion";
         	this.trkInstrumentacion.Size = new System.Drawing.Size(218, 19);
         	this.trkInstrumentacion.TabIndex = 47;
+        	this.trkInstrumentacion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkCapacidadExpansion
         	// 
@@ -983,6 +1044,7 @@ namespace MetricaCalidadDifusa
         	this.trkCapacidadExpansion.Name = "trkCapacidadExpansion";
         	this.trkCapacidadExpansion.Size = new System.Drawing.Size(218, 19);
         	this.trkCapacidadExpansion.TabIndex = 48;
+        	this.trkCapacidadExpansion.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkGeneralidad
         	// 
@@ -991,6 +1053,7 @@ namespace MetricaCalidadDifusa
         	this.trkGeneralidad.Name = "trkGeneralidad";
         	this.trkGeneralidad.Size = new System.Drawing.Size(218, 19);
         	this.trkGeneralidad.TabIndex = 49;
+        	this.trkGeneralidad.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkCompatibilidadComunicacion
         	// 
@@ -999,14 +1062,16 @@ namespace MetricaCalidadDifusa
         	this.trkCompatibilidadComunicacion.Name = "trkCompatibilidadComunicacion";
         	this.trkCompatibilidadComunicacion.Size = new System.Drawing.Size(218, 19);
         	this.trkCompatibilidadComunicacion.TabIndex = 52;
+        	this.trkCompatibilidadComunicacion.Scroll += new System.EventHandler(this.inferir);
         	// 
-        	// trkCaopatibilidadDatos
+        	// trkCompatibilidadDatos
         	// 
-        	this.trkCaopatibilidadDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.trkCaopatibilidadDatos.Location = new System.Drawing.Point(720, 313);
-        	this.trkCaopatibilidadDatos.Name = "trkCaopatibilidadDatos";
-        	this.trkCaopatibilidadDatos.Size = new System.Drawing.Size(218, 19);
-        	this.trkCaopatibilidadDatos.TabIndex = 53;
+        	this.trkCompatibilidadDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.trkCompatibilidadDatos.Location = new System.Drawing.Point(720, 313);
+        	this.trkCompatibilidadDatos.Name = "trkCompatibilidadDatos";
+        	this.trkCompatibilidadDatos.Size = new System.Drawing.Size(218, 19);
+        	this.trkCompatibilidadDatos.TabIndex = 53;
+        	this.trkCompatibilidadDatos.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// trkEstandarizacionDatos
         	// 
@@ -1015,6 +1080,7 @@ namespace MetricaCalidadDifusa
         	this.trkEstandarizacionDatos.Name = "trkEstandarizacionDatos";
         	this.trkEstandarizacionDatos.Size = new System.Drawing.Size(218, 19);
         	this.trkEstandarizacionDatos.TabIndex = 54;
+        	this.trkEstandarizacionDatos.Scroll += new System.EventHandler(this.inferir);
         	// 
         	// ponFacilidadOperacion
         	// 
@@ -1232,6 +1298,117 @@ namespace MetricaCalidadDifusa
         	this.ponEstandarizacionDatos.Size = new System.Drawing.Size(46, 20);
         	this.ponEstandarizacionDatos.TabIndex = 81;
         	// 
+        	// label1
+        	// 
+        	this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label1.Location = new System.Drawing.Point(3, 0);
+        	this.label1.Name = "label1";
+        	this.label1.Size = new System.Drawing.Size(218, 35);
+        	this.label1.TabIndex = 82;
+        	this.label1.Text = "Criterio";
+        	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label17
+        	// 
+        	this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label17.Location = new System.Drawing.Point(227, 0);
+        	this.label17.Name = "label17";
+        	this.label17.Size = new System.Drawing.Size(218, 35);
+        	this.label17.TabIndex = 83;
+        	this.label17.Text = "Medida";
+        	this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label18
+        	// 
+        	this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label18.Location = new System.Drawing.Point(451, 0);
+        	this.label18.Name = "label18";
+        	this.label18.Size = new System.Drawing.Size(39, 35);
+        	this.label18.TabIndex = 84;
+        	this.label18.Text = "Pond.";
+        	this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label19
+        	// 
+        	this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label19.Location = new System.Drawing.Point(496, 0);
+        	this.label19.Name = "label19";
+        	this.label19.Size = new System.Drawing.Size(218, 35);
+        	this.label19.TabIndex = 85;
+        	this.label19.Text = "Criterio";
+        	this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label20
+        	// 
+        	this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label20.Location = new System.Drawing.Point(720, 0);
+        	this.label20.Name = "label20";
+        	this.label20.Size = new System.Drawing.Size(218, 35);
+        	this.label20.TabIndex = 86;
+        	this.label20.Text = "Medida";
+        	this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label21
+        	// 
+        	this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label21.Location = new System.Drawing.Point(944, 0);
+        	this.label21.Name = "label21";
+        	this.label21.Size = new System.Drawing.Size(46, 35);
+        	this.label21.TabIndex = 87;
+        	this.label21.Text = "Pond.";
+        	this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+        	// 
+        	// label22
+        	// 
+        	this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.label22.Location = new System.Drawing.Point(3, 35);
+        	this.label22.Name = "label22";
+        	this.label22.Size = new System.Drawing.Size(218, 25);
+        	this.label22.TabIndex = 88;
+        	this.label22.Text = "Facilidad de Operación";
+        	this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        	// 
+        	// tableLayoutPanel2
+        	// 
+        	this.tableLayoutPanel2.ColumnCount = 2;
+        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
+        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
+        	this.tableLayoutPanel2.Controls.Add(this.rbControlSi, 0, 0);
+        	this.tableLayoutPanel2.Controls.Add(this.rbControlNo, 1, 0);
+        	this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.tableLayoutPanel2.Location = new System.Drawing.Point(227, 138);
+        	this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+        	this.tableLayoutPanel2.RowCount = 1;
+        	this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        	this.tableLayoutPanel2.Size = new System.Drawing.Size(218, 19);
+        	this.tableLayoutPanel2.TabIndex = 89;
+        	// 
+        	// rbControlSi
+        	// 
+        	this.rbControlSi.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbControlSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbControlSi.Location = new System.Drawing.Point(3, 3);
+        	this.rbControlSi.Name = "rbControlSi";
+        	this.rbControlSi.Size = new System.Drawing.Size(36, 13);
+        	this.rbControlSi.TabIndex = 0;
+        	this.rbControlSi.TabStop = true;
+        	this.rbControlSi.Text = "Si";
+        	this.rbControlSi.UseVisualStyleBackColor = true;
+        	this.rbControlSi.Click += new System.EventHandler(this.inferir);
+        	// 
+        	// rbControlNo
+        	// 
+        	this.rbControlNo.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.rbControlNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.rbControlNo.Location = new System.Drawing.Point(45, 3);
+        	this.rbControlNo.Name = "rbControlNo";
+        	this.rbControlNo.Size = new System.Drawing.Size(170, 13);
+        	this.rbControlNo.TabIndex = 1;
+        	this.rbControlNo.TabStop = true;
+        	this.rbControlNo.Text = "No";
+        	this.rbControlNo.UseVisualStyleBackColor = true;
+        	this.rbControlNo.Click += new System.EventHandler(this.inferir);
+        	// 
         	// tableLayoutPanel1
         	// 
         	this.tableLayoutPanel1.AutoScroll = true;
@@ -1271,7 +1448,7 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel6.Controls.Add(this.label16, 0, 4);
         	this.tableLayoutPanel6.Controls.Add(this.prgReusabilidad, 1, 0);
         	this.tableLayoutPanel6.Controls.Add(this.prgInteroperabilidad, 1, 2);
-        	this.tableLayoutPanel6.Controls.Add(this.prgPruebas, 1, 4);
+        	this.tableLayoutPanel6.Controls.Add(this.prgPortabilidad, 1, 4);
         	this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.tableLayoutPanel6.Location = new System.Drawing.Point(499, 63);
         	this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -1330,13 +1507,13 @@ namespace MetricaCalidadDifusa
         	this.prgInteroperabilidad.Size = new System.Drawing.Size(115, 12);
         	this.prgInteroperabilidad.TabIndex = 4;
         	// 
-        	// prgPruebas
+        	// prgPortabilidad
         	// 
-        	this.prgPruebas.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.prgPruebas.Location = new System.Drawing.Point(124, 75);
-        	this.prgPruebas.Name = "prgPruebas";
-        	this.prgPruebas.Size = new System.Drawing.Size(115, 14);
-        	this.prgPruebas.TabIndex = 5;
+        	this.prgPortabilidad.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.prgPortabilidad.Location = new System.Drawing.Point(124, 75);
+        	this.prgPortabilidad.Name = "prgPortabilidad";
+        	this.prgPortabilidad.Size = new System.Drawing.Size(115, 14);
+        	this.prgPortabilidad.TabIndex = 5;
         	// 
         	// gauCalidad
         	// 
@@ -1347,14 +1524,14 @@ namespace MetricaCalidadDifusa
         	this.gauCalidad.BaseArcWidth = 2;
         	this.gauCalidad.Center = new System.Drawing.Point(100, 100);
         	this.gauCalidad.Dock = System.Windows.Forms.DockStyle.Fill;
-        	aGaugeRange1.Color = System.Drawing.Color.Red;
-        	aGaugeRange1.EndValue = 30F;
-        	aGaugeRange1.InnerRadius = 1;
-        	aGaugeRange1.InRange = false;
-        	aGaugeRange1.Name = "GaugeRange1";
-        	aGaugeRange1.OuterRadius = 2;
-        	aGaugeRange1.StartValue = 0F;
-        	this.gauCalidad.GaugeRanges.Add(aGaugeRange1);
+        	aGaugeRange3.Color = System.Drawing.Color.Red;
+        	aGaugeRange3.EndValue = 30F;
+        	aGaugeRange3.InnerRadius = 1;
+        	aGaugeRange3.InRange = false;
+        	aGaugeRange3.Name = "GaugeRange1";
+        	aGaugeRange3.OuterRadius = 2;
+        	aGaugeRange3.StartValue = 0F;
+        	this.gauCalidad.GaugeRanges.Add(aGaugeRange3);
         	this.gauCalidad.Location = new System.Drawing.Point(747, 33);
         	this.gauCalidad.MaxValue = 100F;
         	this.gauCalidad.MinValue = 0F;
@@ -1647,10 +1824,6 @@ namespace MetricaCalidadDifusa
         	this.prgFlexibilidad.Size = new System.Drawing.Size(115, 14);
         	this.prgFlexibilidad.TabIndex = 5;
         	// 
-        	// openFileDialog
-        	// 
-        	this.openFileDialog.Title = "Cargar Reglas";
-        	// 
         	// menuStrip1
         	// 
         	this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1664,349 +1837,25 @@ namespace MetricaCalidadDifusa
         	// reglasToolStripMenuItem
         	// 
         	this.reglasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.cargarReglasCalidadDeSoftwareToolStripMenuItem,
-			this.toolStripSeparator1,
-			this.cargarReglasToolStripMenuItem,
-			this.revisiónDelProductoToolStripMenuItem,
-			this.transiciónDelProductoToolStripMenuItem});
+			this.definirBaseDeReglasToolStripMenuItem,
+			this.recargarReglasToolStripMenuItem});
         	this.reglasToolStripMenuItem.Name = "reglasToolStripMenuItem";
         	this.reglasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
         	this.reglasToolStripMenuItem.Text = "Inferencia";
         	// 
-        	// cargarReglasCalidadDeSoftwareToolStripMenuItem
-        	// 
-        	this.cargarReglasCalidadDeSoftwareToolStripMenuItem.Name = "cargarReglasCalidadDeSoftwareToolStripMenuItem";
-        	this.cargarReglasCalidadDeSoftwareToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
-        	this.cargarReglasCalidadDeSoftwareToolStripMenuItem.Text = "Cargar reglas Calidad de Software";
-        	// 
-        	// toolStripSeparator1
-        	// 
-        	this.toolStripSeparator1.Name = "toolStripSeparator1";
-        	this.toolStripSeparator1.Size = new System.Drawing.Size(248, 6);
-        	// 
-        	// cargarReglasToolStripMenuItem
-        	// 
-        	this.cargarReglasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.cargarReglasOperaciónDelProductoToolStripMenuItem,
-			this.toolStripSeparator2,
-			this.cargarReglasToolStripMenuItem1,
-			this.cargarReglasToolStripMenuItem2,
-			this.cargarReglasCorrecciónToolStripMenuItem,
-			this.cargarReglasFiabilidadToolStripMenuItem,
-			this.cargarReglasToolStripMenuItem3});
-        	this.cargarReglasToolStripMenuItem.Name = "cargarReglasToolStripMenuItem";
-        	this.cargarReglasToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
-        	this.cargarReglasToolStripMenuItem.Text = "Operación del Producto";
-        	// 
-        	// cargarReglasOperaciónDelProductoToolStripMenuItem
-        	// 
-        	this.cargarReglasOperaciónDelProductoToolStripMenuItem.Name = "cargarReglasOperaciónDelProductoToolStripMenuItem";
-        	this.cargarReglasOperaciónDelProductoToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasOperaciónDelProductoToolStripMenuItem.Text = "Cargar reglas Operación del Producto";
-        	// 
-        	// toolStripSeparator2
-        	// 
-        	this.toolStripSeparator2.Name = "toolStripSeparator2";
-        	this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
-        	// 
-        	// cargarReglasToolStripMenuItem1
-        	// 
-        	this.cargarReglasToolStripMenuItem1.Name = "cargarReglasToolStripMenuItem1";
-        	this.cargarReglasToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasToolStripMenuItem1.Text = "Cargar reglas Facilidad de Uso";
-        	// 
-        	// revisiónDelProductoToolStripMenuItem
-        	// 
-        	this.revisiónDelProductoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.cargarReglasRevisiónDelProductoToolStripMenuItem,
-			this.toolStripSeparator4,
-			this.cargarReglasFacilidadDeMantenimientoToolStripMenuItem,
-			this.cargarReglasFacilidadDePruebasToolStripMenuItem,
-			this.cargarReglasFlexibilidadToolStripMenuItem});
-        	this.revisiónDelProductoToolStripMenuItem.Name = "revisiónDelProductoToolStripMenuItem";
-        	this.revisiónDelProductoToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
-        	this.revisiónDelProductoToolStripMenuItem.Text = "Revisión del Producto";
-        	// 
-        	// cargarReglasRevisiónDelProductoToolStripMenuItem
-        	// 
-        	this.cargarReglasRevisiónDelProductoToolStripMenuItem.Name = "cargarReglasRevisiónDelProductoToolStripMenuItem";
-        	this.cargarReglasRevisiónDelProductoToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
-        	this.cargarReglasRevisiónDelProductoToolStripMenuItem.Text = "Cargar reglas Revisión del Producto";
-        	// 
-        	// toolStripSeparator4
-        	// 
-        	this.toolStripSeparator4.Name = "toolStripSeparator4";
-        	this.toolStripSeparator4.Size = new System.Drawing.Size(291, 6);
-        	// 
-        	// transiciónDelProductoToolStripMenuItem
-        	// 
-        	this.transiciónDelProductoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.cargarReglasTransiciónDelProductoToolStripMenuItem,
-			this.toolStripSeparator3,
-			this.cargarReglasUsabilidadToolStripMenuItem,
-			this.cargarReglasInteroperabilidadToolStripMenuItem,
-			this.cargarReglasPortabilidadToolStripMenuItem});
-        	this.transiciónDelProductoToolStripMenuItem.Name = "transiciónDelProductoToolStripMenuItem";
-        	this.transiciónDelProductoToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
-        	this.transiciónDelProductoToolStripMenuItem.Text = "Transición del Producto";
-        	// 
-        	// cargarReglasTransiciónDelProductoToolStripMenuItem
-        	// 
-        	this.cargarReglasTransiciónDelProductoToolStripMenuItem.Name = "cargarReglasTransiciónDelProductoToolStripMenuItem";
-        	this.cargarReglasTransiciónDelProductoToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasTransiciónDelProductoToolStripMenuItem.Text = "Cargar reglas Transición del Producto";
-        	// 
-        	// toolStripSeparator3
-        	// 
-        	this.toolStripSeparator3.Name = "toolStripSeparator3";
-        	this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
-        	// 
-        	// cargarReglasToolStripMenuItem2
-        	// 
-        	this.cargarReglasToolStripMenuItem2.Name = "cargarReglasToolStripMenuItem2";
-        	this.cargarReglasToolStripMenuItem2.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasToolStripMenuItem2.Text = "Cargar reglas Integridad";
-        	// 
-        	// cargarReglasCorrecciónToolStripMenuItem
-        	// 
-        	this.cargarReglasCorrecciónToolStripMenuItem.Name = "cargarReglasCorrecciónToolStripMenuItem";
-        	this.cargarReglasCorrecciónToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasCorrecciónToolStripMenuItem.Text = "Cargar reglas Corrección";
-        	// 
-        	// cargarReglasFiabilidadToolStripMenuItem
-        	// 
-        	this.cargarReglasFiabilidadToolStripMenuItem.Name = "cargarReglasFiabilidadToolStripMenuItem";
-        	this.cargarReglasFiabilidadToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasFiabilidadToolStripMenuItem.Text = "Cargar reglas Fiabilidad";
-        	// 
-        	// cargarReglasToolStripMenuItem3
-        	// 
-        	this.cargarReglasToolStripMenuItem3.Name = "cargarReglasToolStripMenuItem3";
-        	this.cargarReglasToolStripMenuItem3.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasToolStripMenuItem3.Text = "Cargar reglas Eficiencia";
-        	// 
-        	// cargarReglasFacilidadDeMantenimientoToolStripMenuItem
-        	// 
-        	this.cargarReglasFacilidadDeMantenimientoToolStripMenuItem.Name = "cargarReglasFacilidadDeMantenimientoToolStripMenuItem";
-        	this.cargarReglasFacilidadDeMantenimientoToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
-        	this.cargarReglasFacilidadDeMantenimientoToolStripMenuItem.Text = "Cargar reglas Facilidad de Mantenimiento";
-        	// 
-        	// cargarReglasFacilidadDePruebasToolStripMenuItem
-        	// 
-        	this.cargarReglasFacilidadDePruebasToolStripMenuItem.Name = "cargarReglasFacilidadDePruebasToolStripMenuItem";
-        	this.cargarReglasFacilidadDePruebasToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
-        	this.cargarReglasFacilidadDePruebasToolStripMenuItem.Text = "Cargar reglas Facilidad de Pruebas";
-        	// 
-        	// cargarReglasFlexibilidadToolStripMenuItem
-        	// 
-        	this.cargarReglasFlexibilidadToolStripMenuItem.Name = "cargarReglasFlexibilidadToolStripMenuItem";
-        	this.cargarReglasFlexibilidadToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
-        	this.cargarReglasFlexibilidadToolStripMenuItem.Text = "Cargar reglas Flexibilidad";
-        	// 
-        	// cargarReglasUsabilidadToolStripMenuItem
-        	// 
-        	this.cargarReglasUsabilidadToolStripMenuItem.Name = "cargarReglasUsabilidadToolStripMenuItem";
-        	this.cargarReglasUsabilidadToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasUsabilidadToolStripMenuItem.Text = "Cargar reglas Usabilidad";
-        	// 
-        	// cargarReglasInteroperabilidadToolStripMenuItem
-        	// 
-        	this.cargarReglasInteroperabilidadToolStripMenuItem.Name = "cargarReglasInteroperabilidadToolStripMenuItem";
-        	this.cargarReglasInteroperabilidadToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasInteroperabilidadToolStripMenuItem.Text = "Cargar reglas Interoperabilidad";
-        	// 
-        	// cargarReglasPortabilidadToolStripMenuItem
-        	// 
-        	this.cargarReglasPortabilidadToolStripMenuItem.Name = "cargarReglasPortabilidadToolStripMenuItem";
-        	this.cargarReglasPortabilidadToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
-        	this.cargarReglasPortabilidadToolStripMenuItem.Text = "Cargar reglas Portabilidad";
-        	// 
-        	// label1
-        	// 
-        	this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label1.Location = new System.Drawing.Point(3, 0);
-        	this.label1.Name = "label1";
-        	this.label1.Size = new System.Drawing.Size(218, 35);
-        	this.label1.TabIndex = 82;
-        	this.label1.Text = "Criterio";
-        	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label17
-        	// 
-        	this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label17.Location = new System.Drawing.Point(227, 0);
-        	this.label17.Name = "label17";
-        	this.label17.Size = new System.Drawing.Size(218, 35);
-        	this.label17.TabIndex = 83;
-        	this.label17.Text = "Medida";
-        	this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label18
-        	// 
-        	this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label18.Location = new System.Drawing.Point(451, 0);
-        	this.label18.Name = "label18";
-        	this.label18.Size = new System.Drawing.Size(39, 35);
-        	this.label18.TabIndex = 84;
-        	this.label18.Text = "Pond.";
-        	this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label19
-        	// 
-        	this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label19.Location = new System.Drawing.Point(496, 0);
-        	this.label19.Name = "label19";
-        	this.label19.Size = new System.Drawing.Size(218, 35);
-        	this.label19.TabIndex = 85;
-        	this.label19.Text = "Criterio";
-        	this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label20
-        	// 
-        	this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label20.Location = new System.Drawing.Point(720, 0);
-        	this.label20.Name = "label20";
-        	this.label20.Size = new System.Drawing.Size(218, 35);
-        	this.label20.TabIndex = 86;
-        	this.label20.Text = "Medida";
-        	this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label21
-        	// 
-        	this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label21.Location = new System.Drawing.Point(944, 0);
-        	this.label21.Name = "label21";
-        	this.label21.Size = new System.Drawing.Size(46, 35);
-        	this.label21.TabIndex = 87;
-        	this.label21.Text = "Pond.";
-        	this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-        	// 
-        	// label22
-        	// 
-        	this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.label22.Location = new System.Drawing.Point(3, 35);
-        	this.label22.Name = "label22";
-        	this.label22.Size = new System.Drawing.Size(218, 25);
-        	this.label22.TabIndex = 88;
-        	this.label22.Text = "Facilidad de Operación";
-        	this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        	// 
-        	// tableLayoutPanel2
-        	// 
-        	this.tableLayoutPanel2.ColumnCount = 2;
-        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
-        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
-        	this.tableLayoutPanel2.Controls.Add(this.radioButton1, 0, 0);
-        	this.tableLayoutPanel2.Controls.Add(this.radioButton2, 1, 0);
-        	this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.tableLayoutPanel2.Location = new System.Drawing.Point(227, 138);
-        	this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-        	this.tableLayoutPanel2.RowCount = 1;
-        	this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.tableLayoutPanel2.Size = new System.Drawing.Size(218, 19);
-        	this.tableLayoutPanel2.TabIndex = 89;
-        	// 
-        	// radioButton1
-        	// 
-        	this.radioButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton1.Location = new System.Drawing.Point(3, 3);
-        	this.radioButton1.Name = "radioButton1";
-        	this.radioButton1.Size = new System.Drawing.Size(37, 13);
-        	this.radioButton1.TabIndex = 0;
-        	this.radioButton1.TabStop = true;
-        	this.radioButton1.Text = "Si";
-        	this.radioButton1.UseVisualStyleBackColor = true;
-        	// 
-        	// radioButton2
-        	// 
-        	this.radioButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton2.Location = new System.Drawing.Point(46, 3);
-        	this.radioButton2.Name = "radioButton2";
-        	this.radioButton2.Size = new System.Drawing.Size(169, 13);
-        	this.radioButton2.TabIndex = 1;
-        	this.radioButton2.TabStop = true;
-        	this.radioButton2.Text = "No";
-        	this.radioButton2.UseVisualStyleBackColor = true;
-        	// 
-        	// tableLayoutPanel7
-        	// 
-        	this.tableLayoutPanel7.ColumnCount = 2;
-        	this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
-        	this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
-        	this.tableLayoutPanel7.Controls.Add(this.radioButton3, 0, 0);
-        	this.tableLayoutPanel7.Controls.Add(this.radioButton4, 1, 0);
-        	this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.tableLayoutPanel7.Location = new System.Drawing.Point(720, 238);
-        	this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-        	this.tableLayoutPanel7.RowCount = 1;
-        	this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.tableLayoutPanel7.Size = new System.Drawing.Size(218, 19);
-        	this.tableLayoutPanel7.TabIndex = 90;
-        	// 
-        	// radioButton3
-        	// 
-        	this.radioButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton3.Location = new System.Drawing.Point(3, 3);
-        	this.radioButton3.Name = "radioButton3";
-        	this.radioButton3.Size = new System.Drawing.Size(37, 13);
-        	this.radioButton3.TabIndex = 0;
-        	this.radioButton3.TabStop = true;
-        	this.radioButton3.Text = "Si";
-        	this.radioButton3.UseVisualStyleBackColor = true;
-        	// 
-        	// radioButton4
-        	// 
-        	this.radioButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton4.Location = new System.Drawing.Point(46, 3);
-        	this.radioButton4.Name = "radioButton4";
-        	this.radioButton4.Size = new System.Drawing.Size(169, 13);
-        	this.radioButton4.TabIndex = 1;
-        	this.radioButton4.TabStop = true;
-        	this.radioButton4.Text = "No";
-        	this.radioButton4.UseVisualStyleBackColor = true;
-        	// 
-        	// tableLayoutPanel8
-        	// 
-        	this.tableLayoutPanel8.ColumnCount = 2;
-        	this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.72477F));
-        	this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.27523F));
-        	this.tableLayoutPanel8.Controls.Add(this.radioButton5, 0, 0);
-        	this.tableLayoutPanel8.Controls.Add(this.radioButton6, 1, 0);
-        	this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.tableLayoutPanel8.Location = new System.Drawing.Point(720, 263);
-        	this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-        	this.tableLayoutPanel8.RowCount = 1;
-        	this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.tableLayoutPanel8.Size = new System.Drawing.Size(218, 19);
-        	this.tableLayoutPanel8.TabIndex = 91;
-        	// 
-        	// radioButton5
-        	// 
-        	this.radioButton5.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton5.Location = new System.Drawing.Point(3, 3);
-        	this.radioButton5.Name = "radioButton5";
-        	this.radioButton5.Size = new System.Drawing.Size(37, 13);
-        	this.radioButton5.TabIndex = 0;
-        	this.radioButton5.TabStop = true;
-        	this.radioButton5.Text = "Si";
-        	this.radioButton5.UseVisualStyleBackColor = true;
-        	// 
-        	// radioButton6
-        	// 
-        	this.radioButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.radioButton6.Location = new System.Drawing.Point(46, 3);
-        	this.radioButton6.Name = "radioButton6";
-        	this.radioButton6.Size = new System.Drawing.Size(169, 13);
-        	this.radioButton6.TabIndex = 1;
-        	this.radioButton6.TabStop = true;
-        	this.radioButton6.Text = "No";
-        	this.radioButton6.UseVisualStyleBackColor = true;
+        	// definirBaseDeReglasToolStripMenuItem
+        	// 
+        	this.definirBaseDeReglasToolStripMenuItem.Name = "definirBaseDeReglasToolStripMenuItem";
+        	this.definirBaseDeReglasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.definirBaseDeReglasToolStripMenuItem.Text = "Cargar Base de Reglas";
+        	this.definirBaseDeReglasToolStripMenuItem.Click += new System.EventHandler(this.mnDefinirBaseReglasClick);
+        	// 
+        	// recargarReglasToolStripMenuItem
+        	// 
+        	this.recargarReglasToolStripMenuItem.Name = "recargarReglasToolStripMenuItem";
+        	this.recargarReglasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.recargarReglasToolStripMenuItem.Text = "Recargar reglas";
+        	this.recargarReglasToolStripMenuItem.Click += new System.EventHandler(this.mnCargarReglasClick);
         	// 
         	// FrmMain
         	// 
@@ -2018,12 +1867,15 @@ namespace MetricaCalidadDifusa
         	this.MainMenuStrip = this.menuStrip1;
         	this.Name = "FrmMain";
         	this.Text = "MetricaCalidadDifusa";
+        	this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         	this.splitContainer1.Panel1.ResumeLayout(false);
         	this.splitContainer1.Panel2.ResumeLayout(false);
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
         	this.splitContainer1.ResumeLayout(false);
         	this.tableLayoutPanel3.ResumeLayout(false);
         	this.tableLayoutPanel3.PerformLayout();
+        	this.tableLayoutPanel8.ResumeLayout(false);
+        	this.tableLayoutPanel7.ResumeLayout(false);
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadOperacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadComunicacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadAprendizaje)).EndInit();
@@ -2046,7 +1898,7 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.trkCapacidadExpansion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkGeneralidad)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadComunicacion)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trkCaopatibilidadDatos)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadDatos)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkEstandarizacionDatos)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadOperacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadComunicacion)).EndInit();
@@ -2075,19 +1927,18 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadComunicacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadDatos)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponEstandarizacionDatos)).EndInit();
+        	this.tableLayoutPanel2.ResumeLayout(false);
         	this.tableLayoutPanel1.ResumeLayout(false);
         	this.tableLayoutPanel6.ResumeLayout(false);
         	this.tableLayoutPanel4.ResumeLayout(false);
         	this.tableLayoutPanel5.ResumeLayout(false);
         	this.menuStrip1.ResumeLayout(false);
         	this.menuStrip1.PerformLayout();
-        	this.tableLayoutPanel2.ResumeLayout(false);
-        	this.tableLayoutPanel7.ResumeLayout(false);
-        	this.tableLayoutPanel8.ResumeLayout(false);
         	this.ResumeLayout(false);
         	this.PerformLayout();
 
         }
+        }
 	}
-}
+
 

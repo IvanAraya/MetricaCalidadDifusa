@@ -43,7 +43,7 @@ namespace MetricaCalidadDifusa
 		VariableDifusa estandarizacion_de_datos;
 		VariableDifusa eficiencia_de_ejecucion;
 		VariableDifusa eficiencia_de_almacenamiento;
-		VariableDifusa Control_de_acceso;
+		VariableDifusa control_de_acceso;
 		VariableDifusa independencia_de_software;
 		VariableDifusa independencia_del_hardware;
 		VariableDifusa facilidad_de_uso;
@@ -62,6 +62,25 @@ namespace MetricaCalidadDifusa
 		VariableDifusa transicion_del_producto;
 		VariableDifusa calidad_de_software;
 		
+		InferenciaDifusa infFacilidadUso;
+		InferenciaDifusa infIntegridad;
+		InferenciaDifusa infCorrecion;
+		InferenciaDifusa infFiabilidad;
+		InferenciaDifusa infEficiencia;
+		InferenciaDifusa infFacilidadMantenimiento;
+		InferenciaDifusa infFacilidadPrueba;
+		InferenciaDifusa infFLexibilidad;
+		InferenciaDifusa infReusabilidad;
+		InferenciaDifusa infInteroperabilidad;
+		InferenciaDifusa infPortabilidad;
+		InferenciaDifusa infOperacion;
+		InferenciaDifusa infRevision;
+		InferenciaDifusa infTransicion;
+		InferenciaDifusa infCalidadSoftware;
+		
+		String pathReglas;
+		
+		
 	/***************************************************************************/
 		public FrmMain()
 		{
@@ -70,6 +89,7 @@ namespace MetricaCalidadDifusa
 			//
 			InitializeComponent();
 			inicializarVariables();
+			inicializarInferencia();
 
 		}
 	/***************************************************************************/	
@@ -249,7 +269,7 @@ namespace MetricaCalidadDifusa
 				new FuncionSaturacion("muy_alta", 8, 10, 10)
 			});
 			//----------------------------------------------------------------
-			Control_de_acceso = new VariableDifusa("Control_de_acceso", 0, 10, new List<FuncionPertenencia> {
+			control_de_acceso = new VariableDifusa("Control_de_acceso", 0, 10, new List<FuncionPertenencia> {
 				new FuncionHombro("no", 0, 0, 1),
 				new FuncionSaturacion("si", 9, 10, 10)
 			});
@@ -370,20 +390,357 @@ namespace MetricaCalidadDifusa
 				new FuncionTriangular("buena", 6, 8, 10),
 				new FuncionSaturacion("excelente", 8, 10, 10)
 			});	
+		}
+	/***************************************************************************/	
+		public void inicializarInferencia(){
+			
+			infFacilidadUso = new InferenciaDifusa();
+			infIntegridad = new InferenciaDifusa();
+			infCorrecion = new InferenciaDifusa();
+			infFiabilidad = new InferenciaDifusa();
+			infEficiencia = new InferenciaDifusa();
+			infFacilidadMantenimiento = new InferenciaDifusa();
+			infFacilidadPrueba = new InferenciaDifusa();
+			infFLexibilidad = new InferenciaDifusa();
+			infReusabilidad = new InferenciaDifusa();
+			infInteroperabilidad = new InferenciaDifusa();
+			infPortabilidad = new InferenciaDifusa();
+			infOperacion = new InferenciaDifusa();
+			infRevision = new InferenciaDifusa();
+			infTransicion = new InferenciaDifusa();
+			infCalidadSoftware = new InferenciaDifusa();
+			
+			//------------------------------------------------			
+			infCalidadSoftware.AgregarEntrada(operacion_del_producto);
+			infCalidadSoftware.AgregarEntrada(revision_del_producto);
+			infCalidadSoftware.AgregarEntrada(transicion_del_producto);
+			infCalidadSoftware.AgregarSalida(calidad_de_software);
+			
+			//------------------------------------------------	
+			infFacilidadUso.AgregarEntrada(facilidad_de_operacion);
+			infFacilidadUso.AgregarEntrada(facilidad_de_comunicacion);
+			infFacilidadUso.AgregarEntrada(facilidad_de_aprendizaje);
+			infFacilidadUso.AgregarEntrada(formacion);
+			infFacilidadUso.AgregarSalida(facilidad_de_uso);
+			
+			//------------------------------------------------	
+			infIntegridad.AgregarEntrada(control_de_acceso);
+			infIntegridad.AgregarEntrada(facilidad_de_auditoria);
+			infIntegridad.AgregarEntrada(seguridad);
+			infIntegridad.AgregarSalida(integridad);
+			
+			//------------------------------------------------	
+			infCorrecion.AgregarEntrada(completitud);
+			infCorrecion.AgregarEntrada(consistencia);
+			infCorrecion.AgregarEntrada(trazabilidad);
+			infCorrecion.AgregarSalida(correcion);
+			
+			//------------------------------------------------	
+			infFiabilidad.AgregarEntrada(precision);
+			infFiabilidad.AgregarEntrada(consistencia);
+			infFiabilidad.AgregarEntrada(tolerancia_a_fallas);
+			infFiabilidad.AgregarEntrada(modularidad);
+			infFiabilidad.AgregarEntrada(simplicidad);
+			infFiabilidad.AgregarEntrada(exactitud);
+			infFiabilidad.AgregarSalida(fiabilidad);
+			
+			//------------------------------------------------	
+			infEficiencia.AgregarEntrada(eficiencia_de_ejecucion);
+			infEficiencia.AgregarEntrada(eficiencia_de_almacenamiento);
+			infEficiencia.AgregarSalida(eficiencia);
+			
+			//------------------------------------------------	
+			infOperacion.AgregarEntrada(facilidad_de_uso);
+			infOperacion.AgregarEntrada(integridad);
+			infOperacion.AgregarEntrada(correcion);
+			infOperacion.AgregarEntrada(fiabilidad);
+			infOperacion.AgregarEntrada(eficiencia);
+			infOperacion.AgregarSalida(operacion_del_producto);
+			
+			//------------------------------------------------	
+			infRevision.AgregarEntrada(facilidad_de_mantenimiento);
+			infRevision.AgregarEntrada(facilidad_de_prueba);
+			infRevision.AgregarEntrada(flexibilidad);
+			infRevision.AgregarSalida(revision_del_producto);
+			
+			//------------------------------------------------	
+			infFacilidadMantenimiento.AgregarEntrada(modularidad);
+			infFacilidadMantenimiento.AgregarEntrada(simplicidad);
+			infFacilidadMantenimiento.AgregarEntrada(consistencia);
+			infFacilidadMantenimiento.AgregarEntrada(consicion);
+			infFacilidadMantenimiento.AgregarEntrada(auto_descripcion);
+			infFacilidadMantenimiento.AgregarSalida(facilidad_de_mantenimiento);
+			
+			//------------------------------------------------	
+			infFacilidadPrueba.AgregarEntrada(modularidad);
+			infFacilidadPrueba.AgregarEntrada(simplicidad);
+			infFacilidadPrueba.AgregarEntrada(auto_descripcion);
+			infFacilidadPrueba.AgregarEntrada(instrumentacion);
+			infFacilidadPrueba.AgregarSalida(facilidad_de_prueba);
+			
+			//------------------------------------------------	
+			infFLexibilidad.AgregarEntrada(auto_descripcion);
+			infFLexibilidad.AgregarEntrada(capacidad_de_expansion);
+			infFLexibilidad.AgregarEntrada(generalidad);
+			infFLexibilidad.AgregarEntrada(modularidad);
+			infFLexibilidad.AgregarSalida(flexibilidad);
+			
+			//------------------------------------------------	
+			infReusabilidad.AgregarEntrada(auto_descripcion);
+			infReusabilidad.AgregarEntrada(generalidad);
+			infReusabilidad.AgregarEntrada(modularidad);
+			infReusabilidad.AgregarEntrada(independencia_de_software);
+			infReusabilidad.AgregarEntrada(independencia_del_hardware);
+			infReusabilidad.AgregarSalida(reusabilidad);
+			
+			//------------------------------------------------	
+			infInteroperabilidad.AgregarEntrada(modularidad);
+			infInteroperabilidad.AgregarEntrada(compatibilidad_de_comunicacion);
+			infInteroperabilidad.AgregarEntrada(compatibilidad_de_datos);
+			infInteroperabilidad.AgregarEntrada(estandarizacion_de_datos);
+			infInteroperabilidad.AgregarSalida(interoperabilidad);
+			
+			//------------------------------------------------	
+			infPortabilidad.AgregarEntrada(auto_descripcion);
+			infPortabilidad.AgregarEntrada(modularidad);
+			infPortabilidad.AgregarEntrada(independencia_de_software);
+			infPortabilidad.AgregarEntrada(independencia_del_hardware);
+			infPortabilidad.AgregarSalida(portabilidad);
+			
+			//------------------------------------------------	
+			infTransicion.AgregarEntrada(reusabilidad);
+			infTransicion.AgregarEntrada(interoperabilidad);
+			infTransicion.AgregarEntrada(portabilidad);
+			infTransicion.AgregarSalida(transicion_del_producto);
 			
 		}
 	/**************************************************************************/
-		void BtnCargarReglasClick(object sender, EventArgs e)
-		{
-			if(openFileDialog.ShowDialog() == DialogResult.OK)
-			   {
-			      System.IO.StreamReader sr = new System.IO.StreamReader(openFileDialog.FileName);
-			      //txtReglas.Text     = sr.ReadToEnd();
-                	//fuzzy.cargarReglas(line);
-			      sr.Close();
-			   }
+		void mnDefinirBaseReglasClick(object sender, EventArgs e){
+			if(folderBrowserDialog.ShowDialog() == DialogResult.OK){
+						pathReglas = folderBrowserDialog.SelectedPath ;
+						mnCargarReglasClick(null,null);
+			}
 		}
+	/**************************************************************************/
+		void mnCargarReglasClick(object sender, EventArgs e)
+		{
+				
+				Cursor = Cursors.WaitCursor;
+			
+				var sr = new System.IO.StreamReader(pathReglas+"\\reglas calidad de software.rgl");
+			    String file = sr.ReadToEnd();
+			    infCalidadSoftware.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas operacion del producto.rgl");
+			    file = sr.ReadToEnd();
+			    infOperacion.cargarReglas(file);
+			    sr.Close();
+			    
+				sr = new System.IO.StreamReader(pathReglas+"\\reglas revision del producto.rgl");
+			    file = sr.ReadToEnd();
+			    infRevision.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas transicion del producto.rgl");
+			    file = sr.ReadToEnd();
+			    infTransicion.cargarReglas(file);
+			    sr.Close();
 
+				sr = new System.IO.StreamReader(pathReglas+"\\reglas facilidad de uso.rgl");
+			    file = sr.ReadToEnd();
+			    infFacilidadUso.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas integridad.rgl");
+			    file = sr.ReadToEnd();
+			    infIntegridad.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas correcion.rgl");
+			    file = sr.ReadToEnd();
+			    infCorrecion.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas fiabilidad.rgl");
+			    file = sr.ReadToEnd();
+			    infFiabilidad.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas eficiencia.rgl");
+			    file = sr.ReadToEnd();
+			    infEficiencia.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas facilidad de mantenimiento.rgl");
+			    file = sr.ReadToEnd();
+			    infFacilidadMantenimiento.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas facilidad de pruebas.rgl");
+			    file = sr.ReadToEnd();
+			    infFacilidadPrueba.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas flexibilidad.rgl");
+			    file = sr.ReadToEnd();
+			    infFLexibilidad.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas reusabilidad.rgl");
+			    file = sr.ReadToEnd();
+			    infReusabilidad.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas interoperabilidad.rgl");
+			    file = sr.ReadToEnd();
+			    infInteroperabilidad.cargarReglas(file);
+			    sr.Close();
+			    
+			    sr = new System.IO.StreamReader(pathReglas+"\\reglas portabilidad.rgl");
+			    file = sr.ReadToEnd();
+			    infPortabilidad.cargarReglas(file);
+			    sr.Close();
+			    
+			    Cursor = Cursors.Default;
+			    
+			    MessageBox.Show("Base de Reglas cargada exitosamente","Reglas");
+			   
+		}
+	/**************************************************************************/
+		void inferir(object sender, EventArgs e){
+			
+			facilidad_de_uso.Restablecer();
+			integridad.Restablecer();
+			correcion.Restablecer();
+			fiabilidad.Restablecer();
+			eficiencia.Restablecer();
+			operacion_del_producto.Restablecer();
+			
+			facilidad_de_mantenimiento.Restablecer();
+			facilidad_de_prueba.Restablecer();
+			flexibilidad.Restablecer();
+			revision_del_producto.Restablecer();
+			
+			reusabilidad.Restablecer();
+			interoperabilidad.Restablecer();
+			portabilidad.Restablecer();
+			transicion_del_producto.Restablecer();
+			
+			calidad_de_software.Restablecer();
+			
+			facilidad_de_operacion.Fuzzyficar(trkFacilidadOperacion.Value);
+			formacion.Fuzzyficar(trkFormacion.Value);
+			seguridad.Fuzzyficar(trkSeguridad.Value);
+			facilidad_de_comunicacion.Fuzzyficar(trkFacilidadComunicacion.Value);
+			facilidad_de_aprendizaje.Fuzzyficar(trkFacilidadAprendizaje.Value);
+		 	facilidad_de_auditoria.Fuzzyficar(trkFacilidadAuditoria.Value);
+		 	completitud.Fuzzyficar(trkCompletitud.Value);
+		 	consistencia.Fuzzyficar(trkConsistencia.Value);
+		 	trazabilidad.Fuzzyficar(trkTrazabilidad.Value);
+		 	precision.Fuzzyficar(trkPrecision.Value);
+		 	tolerancia_a_fallas.Fuzzyficar(trkToleranciaFallos.Value);
+		 	exactitud.Fuzzyficar(trkExactitud.Value);
+		 	auto_descripcion.Fuzzyficar(trkAutoDescripcion.Value);
+		 	instrumentacion.Fuzzyficar(trkInstrumentacion.Value);
+		 	modularidad.Fuzzyficar(trkModularidad.Value);
+		 	simplicidad.Fuzzyficar(trkSimplicidad.Value);
+		 	consicion.Fuzzyficar(trkConcision.Value);
+		 	capacidad_de_expansion.Fuzzyficar(trkCapacidadExpansion.Value);
+		 	generalidad.Fuzzyficar(trkGeneralidad.Value);
+		 	compatibilidad_de_comunicacion.Fuzzyficar(trkCompatibilidadComunicacion.Value);
+		 	compatibilidad_de_datos.Fuzzyficar(trkCompatibilidadDatos.Value);
+		 	estandarizacion_de_datos.Fuzzyficar(trkEstandarizacionDatos.Value);
+		 	eficiencia_de_ejecucion.Fuzzyficar(trkEficienciaEjecucion.Value);
+		 	eficiencia_de_almacenamiento.Fuzzyficar(trkEficienciaAlmacenamiento.Value);	
+
+		 	if(rbControlSi.Checked)
+		 		control_de_acceso.Fuzzyficar(10);
+			else
+				control_de_acceso.Fuzzyficar(0);
+			
+			if(rbIndSoftwareSi.Checked)
+			 	independencia_de_software.Fuzzyficar(10);
+			else
+				independencia_de_software.Fuzzyficar(0);
+			
+			if(rbIndHardwareSi.Checked)
+			 	independencia_del_hardware.Fuzzyficar(10);
+			else
+				independencia_del_hardware.Fuzzyficar(0);
+			
+			infFacilidadUso.Inferir();
+			infIntegridad.Inferir();
+			infCorrecion.Inferir();
+			infFiabilidad.Inferir();
+			infEficiencia.Inferir();
+			
+			infFacilidadMantenimiento.Inferir();
+			infFacilidadPrueba.Inferir();
+			infFLexibilidad.Inferir();
+			
+			infReusabilidad.Inferir();
+			infInteroperabilidad.Inferir();
+			infPortabilidad.Inferir();
+			
+			
+			var facUso =  facilidad_de_uso.Defuzzyficar(Metodo.CENTROIDE);
+			var integ = integridad.Defuzzyficar(Metodo.CENTROIDE);
+			var correc = correcion.Defuzzyficar(Metodo.CENTROIDE);
+			var fiabli = fiabilidad.Defuzzyficar(Metodo.CENTROIDE);
+			var efici = eficiencia.Defuzzyficar(Metodo.CENTROIDE);
+			prgFacilidadUso.Value = (int) facUso *100;
+			prgIntegridad.Value = (int) integ *100;
+			prgCorreccion.Value = (int) correc *100;
+			prgFiabilidad.Value = (int) fiabli *100;
+			prgEficiencia.Value = (int) efici *100;
+			facilidad_de_uso.Fuzzyficar(facUso);
+			integridad.Fuzzyficar(integ);
+			correcion.Fuzzyficar(correc);
+			fiabilidad.Fuzzyficar(fiabli);
+			eficiencia.Fuzzyficar(efici);
+			
+			var facMan = facilidad_de_mantenimiento.Defuzzyficar(Metodo.CENTROIDE);
+			var facPru = facilidad_de_prueba.Defuzzyficar(Metodo.CENTROIDE);
+			var flexi = flexibilidad.Defuzzyficar(Metodo.CENTROIDE);
+			prgFacilidadMantenimiento.Value = (int) facMan *100;
+			prgFacilidadPrueba.Value = (int) facPru *100;
+			prgFlexibilidad.Value = (int) flexi *100;
+			facilidad_de_mantenimiento.Fuzzyficar(facMan);
+			facilidad_de_prueba.Fuzzyficar(facPru);
+			flexibilidad.Fuzzyficar(flexi);
+			
+			var reus = reusabilidad.Defuzzyficar(Metodo.CENTROIDE);
+			var inter = interoperabilidad.Defuzzyficar(Metodo.CENTROIDE);
+			var porta = portabilidad.Defuzzyficar(Metodo.CENTROIDE);
+			prgReusabilidad.Value = (int) reus *100;
+			prgInteroperabilidad.Value = (int) inter *100;
+			prgPortabilidad.Value = (int) porta *100;
+			reusabilidad.Fuzzyficar(reus);
+			interoperabilidad.Fuzzyficar(inter);
+			portabilidad.Fuzzyficar(porta);
+			
+			infOperacion.Inferir();
+			infRevision.Inferir();
+			infTransicion.Inferir();
+			
+			var oper = operacion_del_producto.Defuzzyficar(Metodo.CENTROIDE);
+			var revi = revision_del_producto.Defuzzyficar(Metodo.CENTROIDE);
+			var transi = transicion_del_producto.Defuzzyficar(Metodo.CENTROIDE);
+			prgFacilidadMantenimiento.Value = (int) oper *100;
+			prgFacilidadPrueba.Value = (int) revi *100;
+			prgFlexibilidad.Value = (int) transi *100;
+			operacion_del_producto.Fuzzyficar(oper);
+			revision_del_producto.Fuzzyficar(revi);
+			transicion_del_producto.Fuzzyficar(transi);
+			
+			infCalidadSoftware.Inferir();
+			
+			gauCalidad.Value = (int) calidad_de_software.Defuzzyficar(Metodo.CENTROIDE) * 100 ;
+			
+			
+		}
+	/**************************************************************************/
 
 
 	}
