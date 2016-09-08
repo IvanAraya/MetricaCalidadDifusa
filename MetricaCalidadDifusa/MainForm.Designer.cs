@@ -17,10 +17,6 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.SplitContainer splitContainer2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.AGauge gauCalidad;
 		private System.Windows.Forms.Label label2;
@@ -117,10 +113,10 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.TrackBar trkAutoDescripcion;
 		private System.Windows.Forms.TrackBar trkInstrumentacion;
 		private System.Windows.Forms.TrackBar trkCapacidadExpansion;
-		private System.Windows.Forms.TrackBar trackBar22;
-		private System.Windows.Forms.TrackBar trackBar25;
-		private System.Windows.Forms.TrackBar trackBar26;
-		private System.Windows.Forms.TrackBar trackBar27;
+		private System.Windows.Forms.TrackBar trkGeneralidad;
+		private System.Windows.Forms.TrackBar trkCompatibilidadComunicacion;
+		private System.Windows.Forms.TrackBar trkCaopatibilidadDatos;
+		private System.Windows.Forms.TrackBar trkEstandarizacionDatos;
 		private System.Windows.Forms.NumericUpDown ponFacilidadOperacion;
 		private System.Windows.Forms.NumericUpDown ponFacilidadComunicacion;
 		private System.Windows.Forms.NumericUpDown ponFacilidadAprendizaje;
@@ -142,12 +138,13 @@ namespace MetricaCalidadDifusa
 		private System.Windows.Forms.NumericUpDown ponAutoDescripcion;
 		private System.Windows.Forms.NumericUpDown ponInstrumentacion;
 		private System.Windows.Forms.NumericUpDown ponCapacidadExpansion;
-		private System.Windows.Forms.NumericUpDown numericUpDown22;
-		private System.Windows.Forms.NumericUpDown numericUpDown23;
-		private System.Windows.Forms.NumericUpDown numericUpDown24;
-		private System.Windows.Forms.NumericUpDown numericUpDown25;
-		private System.Windows.Forms.NumericUpDown numericUpDown26;
-		private System.Windows.Forms.NumericUpDown numericUpDown27;
+		private System.Windows.Forms.NumericUpDown ponGeneralidad;
+		private System.Windows.Forms.NumericUpDown ponIndependenciaSoftware;
+		private System.Windows.Forms.NumericUpDown ponIndependenciaHardware;
+		private System.Windows.Forms.NumericUpDown ponCompatibilidadComunicacion;
+		private System.Windows.Forms.NumericUpDown ponCompatibilidadDatos;
+		private System.Windows.Forms.NumericUpDown ponEstandarizacionDatos;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -170,7 +167,7 @@ namespace MetricaCalidadDifusa
         /// </summary>
         private void InitializeComponent()
         {
-        	System.Windows.Forms.AGaugeRange aGaugeRange1 = new System.Windows.Forms.AGaugeRange();
+        	System.Windows.Forms.AGaugeRange aGaugeRange2 = new System.Windows.Forms.AGaugeRange();
         	this.splitContainer1 = new System.Windows.Forms.SplitContainer();
         	this.splitContainer2 = new System.Windows.Forms.SplitContainer();
         	this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -222,10 +219,10 @@ namespace MetricaCalidadDifusa
         	this.trkAutoDescripcion = new System.Windows.Forms.TrackBar();
         	this.trkInstrumentacion = new System.Windows.Forms.TrackBar();
         	this.trkCapacidadExpansion = new System.Windows.Forms.TrackBar();
-        	this.trackBar22 = new System.Windows.Forms.TrackBar();
-        	this.trackBar25 = new System.Windows.Forms.TrackBar();
-        	this.trackBar26 = new System.Windows.Forms.TrackBar();
-        	this.trackBar27 = new System.Windows.Forms.TrackBar();
+        	this.trkGeneralidad = new System.Windows.Forms.TrackBar();
+        	this.trkCompatibilidadComunicacion = new System.Windows.Forms.TrackBar();
+        	this.trkCaopatibilidadDatos = new System.Windows.Forms.TrackBar();
+        	this.trkEstandarizacionDatos = new System.Windows.Forms.TrackBar();
         	this.ponFacilidadOperacion = new System.Windows.Forms.NumericUpDown();
         	this.ponFacilidadComunicacion = new System.Windows.Forms.NumericUpDown();
         	this.ponFacilidadAprendizaje = new System.Windows.Forms.NumericUpDown();
@@ -247,16 +244,12 @@ namespace MetricaCalidadDifusa
         	this.ponAutoDescripcion = new System.Windows.Forms.NumericUpDown();
         	this.ponInstrumentacion = new System.Windows.Forms.NumericUpDown();
         	this.ponCapacidadExpansion = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown23 = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown24 = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown25 = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
-        	this.numericUpDown27 = new System.Windows.Forms.NumericUpDown();
-        	this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-        	this.textBox1 = new System.Windows.Forms.TextBox();
-        	this.label1 = new System.Windows.Forms.Label();
-        	this.button1 = new System.Windows.Forms.Button();
+        	this.ponGeneralidad = new System.Windows.Forms.NumericUpDown();
+        	this.ponIndependenciaSoftware = new System.Windows.Forms.NumericUpDown();
+        	this.ponIndependenciaHardware = new System.Windows.Forms.NumericUpDown();
+        	this.ponCompatibilidadComunicacion = new System.Windows.Forms.NumericUpDown();
+        	this.ponCompatibilidadDatos = new System.Windows.Forms.NumericUpDown();
+        	this.ponEstandarizacionDatos = new System.Windows.Forms.NumericUpDown();
         	this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         	this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
         	this.label14 = new System.Windows.Forms.Label();
@@ -291,13 +284,13 @@ namespace MetricaCalidadDifusa
         	this.prgFacilidadMantenimiento = new System.Windows.Forms.ProgressBar();
         	this.prgFacilidadPrueba = new System.Windows.Forms.ProgressBar();
         	this.prgFlexibilidad = new System.Windows.Forms.ProgressBar();
+        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
         	this.splitContainer1.Panel1.SuspendLayout();
         	this.splitContainer1.Panel2.SuspendLayout();
         	this.splitContainer1.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
         	this.splitContainer2.Panel1.SuspendLayout();
-        	this.splitContainer2.Panel2.SuspendLayout();
         	this.splitContainer2.SuspendLayout();
         	this.tableLayoutPanel3.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.trkFacilidadOperacion)).BeginInit();
@@ -320,10 +313,10 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.trkAutoDescripcion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkInstrumentacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkCapacidadExpansion)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar22)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar25)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar26)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar27)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkGeneralidad)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadComunicacion)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCaopatibilidadDatos)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkEstandarizacionDatos)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadOperacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadComunicacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadAprendizaje)).BeginInit();
@@ -345,13 +338,12 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.ponAutoDescripcion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponInstrumentacion)).BeginInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponCapacidadExpansion)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).BeginInit();
-        	this.tableLayoutPanel2.SuspendLayout();
+        	((System.ComponentModel.ISupportInitialize)(this.ponGeneralidad)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponIndependenciaSoftware)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponIndependenciaHardware)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadComunicacion)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadDatos)).BeginInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponEstandarizacionDatos)).BeginInit();
         	this.tableLayoutPanel1.SuspendLayout();
         	this.tableLayoutPanel6.SuspendLayout();
         	this.tableLayoutPanel4.SuspendLayout();
@@ -389,10 +381,6 @@ namespace MetricaCalidadDifusa
         	// splitContainer2.Panel1
         	// 
         	this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel3);
-        	// 
-        	// splitContainer2.Panel2
-        	// 
-        	this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
         	this.splitContainer2.Size = new System.Drawing.Size(919, 419);
         	this.splitContainer2.SplitterDistance = 675;
         	this.splitContainer2.SplitterWidth = 10;
@@ -456,10 +444,10 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel3.Controls.Add(this.trkAutoDescripcion, 4, 5);
         	this.tableLayoutPanel3.Controls.Add(this.trkInstrumentacion, 4, 6);
         	this.tableLayoutPanel3.Controls.Add(this.trkCapacidadExpansion, 4, 7);
-        	this.tableLayoutPanel3.Controls.Add(this.trackBar22, 4, 8);
-        	this.tableLayoutPanel3.Controls.Add(this.trackBar25, 4, 11);
-        	this.tableLayoutPanel3.Controls.Add(this.trackBar26, 4, 12);
-        	this.tableLayoutPanel3.Controls.Add(this.trackBar27, 4, 13);
+        	this.tableLayoutPanel3.Controls.Add(this.trkGeneralidad, 4, 8);
+        	this.tableLayoutPanel3.Controls.Add(this.trkCompatibilidadComunicacion, 4, 11);
+        	this.tableLayoutPanel3.Controls.Add(this.trkCaopatibilidadDatos, 4, 12);
+        	this.tableLayoutPanel3.Controls.Add(this.trkEstandarizacionDatos, 4, 13);
         	this.tableLayoutPanel3.Controls.Add(this.ponFacilidadOperacion, 2, 1);
         	this.tableLayoutPanel3.Controls.Add(this.ponFacilidadComunicacion, 2, 2);
         	this.tableLayoutPanel3.Controls.Add(this.ponFacilidadAprendizaje, 2, 3);
@@ -481,12 +469,12 @@ namespace MetricaCalidadDifusa
         	this.tableLayoutPanel3.Controls.Add(this.ponAutoDescripcion, 5, 5);
         	this.tableLayoutPanel3.Controls.Add(this.ponInstrumentacion, 5, 6);
         	this.tableLayoutPanel3.Controls.Add(this.ponCapacidadExpansion, 5, 7);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown22, 5, 8);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown23, 5, 9);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown24, 5, 10);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown25, 5, 11);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown26, 5, 12);
-        	this.tableLayoutPanel3.Controls.Add(this.numericUpDown27, 5, 13);
+        	this.tableLayoutPanel3.Controls.Add(this.ponGeneralidad, 5, 8);
+        	this.tableLayoutPanel3.Controls.Add(this.ponIndependenciaSoftware, 5, 9);
+        	this.tableLayoutPanel3.Controls.Add(this.ponIndependenciaHardware, 5, 10);
+        	this.tableLayoutPanel3.Controls.Add(this.ponCompatibilidadComunicacion, 5, 11);
+        	this.tableLayoutPanel3.Controls.Add(this.ponCompatibilidadDatos, 5, 12);
+        	this.tableLayoutPanel3.Controls.Add(this.ponEstandarizacionDatos, 5, 13);
         	this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
         	this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -953,37 +941,37 @@ namespace MetricaCalidadDifusa
         	this.trkCapacidadExpansion.Size = new System.Drawing.Size(138, 20);
         	this.trkCapacidadExpansion.TabIndex = 48;
         	// 
-        	// trackBar22
+        	// trkGeneralidad
         	// 
-        	this.trackBar22.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.trackBar22.Location = new System.Drawing.Point(480, 222);
-        	this.trackBar22.Name = "trackBar22";
-        	this.trackBar22.Size = new System.Drawing.Size(138, 20);
-        	this.trackBar22.TabIndex = 49;
+        	this.trkGeneralidad.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.trkGeneralidad.Location = new System.Drawing.Point(480, 222);
+        	this.trkGeneralidad.Name = "trkGeneralidad";
+        	this.trkGeneralidad.Size = new System.Drawing.Size(138, 20);
+        	this.trkGeneralidad.TabIndex = 49;
         	// 
-        	// trackBar25
+        	// trkCompatibilidadComunicacion
         	// 
-        	this.trackBar25.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.trackBar25.Location = new System.Drawing.Point(480, 300);
-        	this.trackBar25.Name = "trackBar25";
-        	this.trackBar25.Size = new System.Drawing.Size(138, 20);
-        	this.trackBar25.TabIndex = 52;
+        	this.trkCompatibilidadComunicacion.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.trkCompatibilidadComunicacion.Location = new System.Drawing.Point(480, 300);
+        	this.trkCompatibilidadComunicacion.Name = "trkCompatibilidadComunicacion";
+        	this.trkCompatibilidadComunicacion.Size = new System.Drawing.Size(138, 20);
+        	this.trkCompatibilidadComunicacion.TabIndex = 52;
         	// 
-        	// trackBar26
+        	// trkCaopatibilidadDatos
         	// 
-        	this.trackBar26.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.trackBar26.Location = new System.Drawing.Point(480, 326);
-        	this.trackBar26.Name = "trackBar26";
-        	this.trackBar26.Size = new System.Drawing.Size(138, 20);
-        	this.trackBar26.TabIndex = 53;
+        	this.trkCaopatibilidadDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.trkCaopatibilidadDatos.Location = new System.Drawing.Point(480, 326);
+        	this.trkCaopatibilidadDatos.Name = "trkCaopatibilidadDatos";
+        	this.trkCaopatibilidadDatos.Size = new System.Drawing.Size(138, 20);
+        	this.trkCaopatibilidadDatos.TabIndex = 53;
         	// 
-        	// trackBar27
+        	// trkEstandarizacionDatos
         	// 
-        	this.trackBar27.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.trackBar27.Location = new System.Drawing.Point(480, 352);
-        	this.trackBar27.Name = "trackBar27";
-        	this.trackBar27.Size = new System.Drawing.Size(138, 20);
-        	this.trackBar27.TabIndex = 54;
+        	this.trkEstandarizacionDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.trkEstandarizacionDatos.Location = new System.Drawing.Point(480, 352);
+        	this.trkEstandarizacionDatos.Name = "trkEstandarizacionDatos";
+        	this.trkEstandarizacionDatos.Size = new System.Drawing.Size(138, 20);
+        	this.trkEstandarizacionDatos.TabIndex = 54;
         	// 
         	// ponFacilidadOperacion
         	// 
@@ -1153,101 +1141,53 @@ namespace MetricaCalidadDifusa
         	this.ponCapacidadExpansion.Size = new System.Drawing.Size(44, 20);
         	this.ponCapacidadExpansion.TabIndex = 75;
         	// 
-        	// numericUpDown22
+        	// ponGeneralidad
         	// 
-        	this.numericUpDown22.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown22.Location = new System.Drawing.Point(624, 222);
-        	this.numericUpDown22.Name = "numericUpDown22";
-        	this.numericUpDown22.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown22.TabIndex = 76;
+        	this.ponGeneralidad.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponGeneralidad.Location = new System.Drawing.Point(624, 222);
+        	this.ponGeneralidad.Name = "ponGeneralidad";
+        	this.ponGeneralidad.Size = new System.Drawing.Size(44, 20);
+        	this.ponGeneralidad.TabIndex = 76;
         	// 
-        	// numericUpDown23
+        	// ponIndependenciaSoftware
         	// 
-        	this.numericUpDown23.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown23.Location = new System.Drawing.Point(624, 248);
-        	this.numericUpDown23.Name = "numericUpDown23";
-        	this.numericUpDown23.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown23.TabIndex = 77;
+        	this.ponIndependenciaSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponIndependenciaSoftware.Location = new System.Drawing.Point(624, 248);
+        	this.ponIndependenciaSoftware.Name = "ponIndependenciaSoftware";
+        	this.ponIndependenciaSoftware.Size = new System.Drawing.Size(44, 20);
+        	this.ponIndependenciaSoftware.TabIndex = 77;
         	// 
-        	// numericUpDown24
+        	// ponIndependenciaHardware
         	// 
-        	this.numericUpDown24.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown24.Location = new System.Drawing.Point(624, 274);
-        	this.numericUpDown24.Name = "numericUpDown24";
-        	this.numericUpDown24.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown24.TabIndex = 78;
+        	this.ponIndependenciaHardware.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponIndependenciaHardware.Location = new System.Drawing.Point(624, 274);
+        	this.ponIndependenciaHardware.Name = "ponIndependenciaHardware";
+        	this.ponIndependenciaHardware.Size = new System.Drawing.Size(44, 20);
+        	this.ponIndependenciaHardware.TabIndex = 78;
         	// 
-        	// numericUpDown25
+        	// ponCompatibilidadComunicacion
         	// 
-        	this.numericUpDown25.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown25.Location = new System.Drawing.Point(624, 300);
-        	this.numericUpDown25.Name = "numericUpDown25";
-        	this.numericUpDown25.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown25.TabIndex = 79;
+        	this.ponCompatibilidadComunicacion.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponCompatibilidadComunicacion.Location = new System.Drawing.Point(624, 300);
+        	this.ponCompatibilidadComunicacion.Name = "ponCompatibilidadComunicacion";
+        	this.ponCompatibilidadComunicacion.Size = new System.Drawing.Size(44, 20);
+        	this.ponCompatibilidadComunicacion.TabIndex = 79;
         	// 
-        	// numericUpDown26
+        	// ponCompatibilidadDatos
         	// 
-        	this.numericUpDown26.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown26.Location = new System.Drawing.Point(624, 326);
-        	this.numericUpDown26.Name = "numericUpDown26";
-        	this.numericUpDown26.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown26.TabIndex = 80;
+        	this.ponCompatibilidadDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponCompatibilidadDatos.Location = new System.Drawing.Point(624, 326);
+        	this.ponCompatibilidadDatos.Name = "ponCompatibilidadDatos";
+        	this.ponCompatibilidadDatos.Size = new System.Drawing.Size(44, 20);
+        	this.ponCompatibilidadDatos.TabIndex = 80;
         	// 
-        	// numericUpDown27
+        	// ponEstandarizacionDatos
         	// 
-        	this.numericUpDown27.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.numericUpDown27.Location = new System.Drawing.Point(624, 352);
-        	this.numericUpDown27.Name = "numericUpDown27";
-        	this.numericUpDown27.Size = new System.Drawing.Size(44, 20);
-        	this.numericUpDown27.TabIndex = 81;
-        	// 
-        	// tableLayoutPanel2
-        	// 
-        	this.tableLayoutPanel2.ColumnCount = 2;
-        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
-        	this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-        	this.tableLayoutPanel2.Controls.Add(this.button1, 1, 0);
-        	this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-        	this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-        	this.tableLayoutPanel2.RowCount = 2;
-        	this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-        	this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-        	this.tableLayoutPanel2.Size = new System.Drawing.Size(230, 415);
-        	this.tableLayoutPanel2.TabIndex = 0;
-        	// 
-        	// textBox1
-        	// 
-        	this.tableLayoutPanel2.SetColumnSpan(this.textBox1, 2);
-        	this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.textBox1.Location = new System.Drawing.Point(3, 33);
-        	this.textBox1.Multiline = true;
-        	this.textBox1.Name = "textBox1";
-        	this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-        	this.textBox1.Size = new System.Drawing.Size(224, 379);
-        	this.textBox1.TabIndex = 1;
-        	// 
-        	// label1
-        	// 
-        	this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-        	this.label1.Location = new System.Drawing.Point(3, 0);
-        	this.label1.Name = "label1";
-        	this.label1.Size = new System.Drawing.Size(100, 30);
-        	this.label1.TabIndex = 2;
-        	this.label1.Text = "Reglas";
-        	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        	// 
-        	// button1
-        	// 
-        	this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-        	this.button1.Location = new System.Drawing.Point(149, 3);
-        	this.button1.Name = "button1";
-        	this.button1.Size = new System.Drawing.Size(78, 24);
-        	this.button1.TabIndex = 0;
-        	this.button1.Text = "Cargar...";
-        	this.button1.UseVisualStyleBackColor = true;
+        	this.ponEstandarizacionDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ponEstandarizacionDatos.Location = new System.Drawing.Point(624, 352);
+        	this.ponEstandarizacionDatos.Name = "ponEstandarizacionDatos";
+        	this.ponEstandarizacionDatos.Size = new System.Drawing.Size(44, 20);
+        	this.ponEstandarizacionDatos.TabIndex = 81;
         	// 
         	// tableLayoutPanel1
         	// 
@@ -1364,14 +1304,14 @@ namespace MetricaCalidadDifusa
         	this.gauCalidad.BaseArcWidth = 2;
         	this.gauCalidad.Center = new System.Drawing.Point(100, 100);
         	this.gauCalidad.Dock = System.Windows.Forms.DockStyle.Fill;
-        	aGaugeRange1.Color = System.Drawing.Color.Red;
-        	aGaugeRange1.EndValue = 30F;
-        	aGaugeRange1.InnerRadius = 1;
-        	aGaugeRange1.InRange = false;
-        	aGaugeRange1.Name = "GaugeRange1";
-        	aGaugeRange1.OuterRadius = 2;
-        	aGaugeRange1.StartValue = 0F;
-        	this.gauCalidad.GaugeRanges.Add(aGaugeRange1);
+        	aGaugeRange2.Color = System.Drawing.Color.Red;
+        	aGaugeRange2.EndValue = 30F;
+        	aGaugeRange2.InnerRadius = 1;
+        	aGaugeRange2.InRange = false;
+        	aGaugeRange2.Name = "GaugeRange1";
+        	aGaugeRange2.OuterRadius = 2;
+        	aGaugeRange2.StartValue = 0F;
+        	this.gauCalidad.GaugeRanges.Add(aGaugeRange2);
         	this.gauCalidad.Location = new System.Drawing.Point(687, 33);
         	this.gauCalidad.MaxValue = 100F;
         	this.gauCalidad.MinValue = 0F;
@@ -1664,6 +1604,10 @@ namespace MetricaCalidadDifusa
         	this.prgFlexibilidad.Size = new System.Drawing.Size(105, 14);
         	this.prgFlexibilidad.TabIndex = 5;
         	// 
+        	// openFileDialog
+        	// 
+        	this.openFileDialog.Title = "Cargar Reglas";
+        	// 
         	// FrmMain
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1677,7 +1621,6 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
         	this.splitContainer1.ResumeLayout(false);
         	this.splitContainer2.Panel1.ResumeLayout(false);
-        	this.splitContainer2.Panel2.ResumeLayout(false);
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
         	this.splitContainer2.ResumeLayout(false);
         	this.tableLayoutPanel3.ResumeLayout(false);
@@ -1702,10 +1645,10 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.trkAutoDescripcion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkInstrumentacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.trkCapacidadExpansion)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar22)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar25)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar26)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.trackBar27)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkGeneralidad)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCompatibilidadComunicacion)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkCaopatibilidadDatos)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.trkEstandarizacionDatos)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadOperacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadComunicacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponFacilidadAprendizaje)).EndInit();
@@ -1727,14 +1670,12 @@ namespace MetricaCalidadDifusa
         	((System.ComponentModel.ISupportInitialize)(this.ponAutoDescripcion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponInstrumentacion)).EndInit();
         	((System.ComponentModel.ISupportInitialize)(this.ponCapacidadExpansion)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
-        	((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).EndInit();
-        	this.tableLayoutPanel2.ResumeLayout(false);
-        	this.tableLayoutPanel2.PerformLayout();
+        	((System.ComponentModel.ISupportInitialize)(this.ponGeneralidad)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponIndependenciaSoftware)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponIndependenciaHardware)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadComunicacion)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponCompatibilidadDatos)).EndInit();
+        	((System.ComponentModel.ISupportInitialize)(this.ponEstandarizacionDatos)).EndInit();
         	this.tableLayoutPanel1.ResumeLayout(false);
         	this.tableLayoutPanel6.ResumeLayout(false);
         	this.tableLayoutPanel4.ResumeLayout(false);

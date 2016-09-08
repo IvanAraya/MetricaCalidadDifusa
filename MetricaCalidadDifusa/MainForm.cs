@@ -69,13 +69,12 @@ namespace MetricaCalidadDifusa
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			inicializarVariables();
 
 		}
 	/***************************************************************************/	
 		public void inicializarVariables()
 		{
-
 			
 			facilidad_de_operacion = new VariableDifusa("facilidad_de_operacion", 0, 10, new List<FuncionPertenencia> {
 				new FuncionHombro("muy_mala", 0, 2, 4),
@@ -372,6 +371,17 @@ namespace MetricaCalidadDifusa
 				new FuncionSaturacion("excelente", 8, 10, 10)
 			});	
 			
+		}
+	/**************************************************************************/
+		void BtnCargarReglasClick(object sender, EventArgs e)
+		{
+			if(openFileDialog.ShowDialog() == DialogResult.OK)
+			   {
+			      System.IO.StreamReader sr = new System.IO.StreamReader(openFileDialog.FileName);
+			      //txtReglas.Text     = sr.ReadToEnd();
+                	//fuzzy.cargarReglas(line);
+			      sr.Close();
+			   }
 		}
 
 
