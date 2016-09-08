@@ -9,3 +9,15 @@ D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\Me
 D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.csproj.GenerateResource.Cache
 D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.exe
 D:\KmPs - II\Documentos\Asignaturas U\XII\Software II\Calidad difusa - github\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.pdb
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.exe.config
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.exe
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\MetricaCalidadDifusa.pdb
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\FuzzyCore.dll
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\Irony.dll
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\Irony.Interpreter.dll
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.csprojResolveAssemblyReference.cache
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.FrmMain.resources
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.csproj.GenerateResource.Cache
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.exe
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\obj\Debug\MetricaCalidadDifusa.pdb
+D:\PROYECTOS\[ING. SOFTWARE 2]\MetricaCalidadDifusa\MetricaCalidadDifusa\bin\Debug\AGauge.dll
